@@ -6,6 +6,10 @@ getNotes().forEach((item) => {
   notesContainer.insertBefore(noteElement, addNoteBtn);
 });
 
+addNoteBtn.addEventListener("click", () => {
+  addNote();
+});
+
 function getNotes() {
   return JSON.parse(localStorage.getItem("notes")) || [];
 }
@@ -43,6 +47,13 @@ function addNote() {
   saveNotes(notes);
 }
 
-function updateNote(id, newContent) {}
+function updateNote(id, newContent) {
+  const notes = getNotes();
+
+  const updatedNote = notes.filter((item) => item.id === id)[0];
+
+  updateNote.content = newContent;
+  saveNotes(notes);
+}
 
 function deleteNote(id, element) {}
