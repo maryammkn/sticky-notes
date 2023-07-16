@@ -1,8 +1,13 @@
 const notesContainer = document.querySelector("#app");
 const addNoteBtn = document.querySelector(".add-note");
 
+getNotes().forEach((item) => {
+  const noteElement = createNoteElement(item.id, item.content);
+  notesContainer.insertBefore(noteElement, addNoteBtn);
+});
+
 function getNotes() {
-  return JSON.parse(localStorage.getItem("notes") || []);
+  return JSON.parse(localStorage.getItem("notes")) || [];
 }
 
 function saveNotes(notes) {
