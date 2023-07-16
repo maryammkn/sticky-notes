@@ -6,12 +6,10 @@ getNotes().forEach((item) => {
   notesContainer.insertBefore(noteElement, addNoteBtn);
 });
 
-addNoteBtn.addEventListener("click", () => {
-  addNote();
-});
+addNoteBtn.addEventListener("click", () => addNote());
 
 function getNotes() {
-  return JSON.parse(localStorage.getItem("notes")) || [];
+  return JSON.parse(localStorage.getItem("notes") || "[]");
 }
 
 function saveNotes(notes) {
@@ -20,8 +18,11 @@ function saveNotes(notes) {
 
 function createNoteElement(id, content) {
   const noteElement = document.createElement("textarea");
+
   noteElement.classList.add("note");
+
   noteElement.value = content;
+
   noteElement.addEventListener("change", () => {
     updateNote(id, noteElement.value);
   });
@@ -29,6 +30,7 @@ function createNoteElement(id, content) {
   noteElement.addEventListener("dblclick", () => {
     deleteNote(id, noteElement);
   });
+
   return noteElement;
 }
 
@@ -40,7 +42,7 @@ function addNote() {
     content: "",
   };
 
-  createNoteElement(noteItem.id, noteItem.content);
+  const noteElement = createNoteElement(noteItem.id, noteItem.content);
   notesContainer.insertBefore(noteElement, addNoteBtn);
 
   notes.push(noteItem);
@@ -52,7 +54,7 @@ function updateNote(id, newContent) {
 
   const updatedNote = notes.filter((item) => item.id === id)[0];
 
-  updateNote.content = newContent;
+  updatedNote.content = newContent;
   saveNotes(notes);
 }
 
