@@ -13,5 +13,16 @@ function createNoteElement(id, content) {
   const noteElement = document.createElement("textarea");
   noteElement.classList.add("note");
   noteElement.value = content;
+  noteElement.addEventListener("change", () => {
+    updateNote(id, noteElement.value);
+  });
+
+  noteElement.addEventListener("dblclick", () => {
+    deleteNote(id, noteElement);
+  });
   return noteElement;
 }
+
+function updateNote(id, newContent) {}
+
+function deleteNote(id, element) {}
