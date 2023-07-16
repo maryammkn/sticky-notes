@@ -28,6 +28,21 @@ function createNoteElement(id, content) {
   return noteElement;
 }
 
+function addNote() {
+  const notes = getNotes();
+
+  const noteItem = {
+    id: Math.floor(Math.random() * 100000),
+    content: "",
+  };
+
+  createNoteElement(noteItem.id, noteItem.content);
+  notesContainer.insertBefore(noteElement, addNoteBtn);
+
+  notes.push(noteItem);
+  saveNotes(notes);
+}
+
 function updateNote(id, newContent) {}
 
 function deleteNote(id, element) {}
