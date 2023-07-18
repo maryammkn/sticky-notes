@@ -15,6 +15,24 @@ body {
   background-color: #424242;
 }
 
+.main-header {
+  background: #cbd5e1;
+}
+
+.main-nav {
+  display: inline-block;
+}
+
+.main-nav__item {
+  display: inline-block;
+  padding: 1rem;
+}
+
+.main-nav__item a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 #app {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);

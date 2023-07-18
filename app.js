@@ -1,5 +1,9 @@
 const notesContainer = document.querySelector("#app");
 const addNoteBtn = document.querySelector(".add-note");
+const now = moment();
+now.locale("fa");
+document.querySelector(".date-container").textContent =
+  now.format("YYYY / M / D");
 
 getNotes().forEach((item) => {
   const noteElement = createNoteElement(item.id, item.content);

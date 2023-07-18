@@ -7,9 +7,23 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <header class="main-header">
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="#">دفترچه یادداشت روزانه</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#">امروز:</a>
+            <a href="#" class="date-container"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div id="app">
       <button class="add-note" type="button">+</button>
     </div>
+    <script src="jalali-moment.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
